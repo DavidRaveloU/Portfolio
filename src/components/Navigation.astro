@@ -1,6 +1,6 @@
 ---
 import Profile from "../../public/profile.webp";
-import Verified from "../../public/verified.astro";
+import Verified from "../../public/Verified.astro";
 
 const tabs = [
     { name: "Projects", href: "/" },
@@ -12,8 +12,8 @@ const tabs = [
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="sticky top-0 bg-twitter-dark/80 backdrop-blur-sm border-b border-twitter-gray">
-    <div class="h-32 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+<nav class="top-0 bg-twitter-dark/80 backdrop-blur-sm border-b border-twitter-gray">
+    <div class="h-32 bg-gradient-to-r from-blue-400 to-blue-600 min-w-full"></div>
     <div class="px-4">
         <div class="relative -mt-16">
             <img src={Profile.src} alt="Profile" class="w-32 h-32 rounded-full border-4 border-white" />
@@ -42,7 +42,7 @@ const currentPath = Astro.url.pathname;
         </div>
     </div>
 </nav>
-<div class="flex">
+<div class="flex bg-twitter-dark/95 top-0 overflow-hidden sticky backdrop-blur-sm">
     {
         tabs.map((tab) => (
             <a
