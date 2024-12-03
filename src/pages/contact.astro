@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contactLinks = [
+    { platform: "Email", link: "mailto:davidravelo1510@gmail.com", username: "davidravelo1510@gmail.com" },
+    { platform: "GitHub", link: "https://github.com/DavidRaveloU", username: "@DavidRaveloU" },
+    { platform: "Twitter", link: "https://twitter.com/DavidRavelo0", username: "@DavidRavelo0" },
+    { platform: "LinkedIn", link: "https://www.linkedin.com/in/david-ravelo", username: "David Ravelo" },
+];
+---
+
+<Layout title="Contact | Portfolio">
+    <div class="py-6">
+        <h2 class="text-2xl font-bold mb-6">Get in touch</h2>
+        <div class="space-y-4">
+            {
+                contactLinks.map(({ platform, link, username }) => (
+                    <a
+                        href={link}
+                        class="flex items-center p-4 border border-twitter-gray rounded-xl hover:bg-twitter-gray/20 transition-colors"
+                    >
+                        <div>
+                            <div class="font-medium">{platform}</div>
+                            <div class="text-gray-400">{username}</div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</Layout>

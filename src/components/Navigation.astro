@@ -1,0 +1,59 @@
+---
+import Profile from "../../public/profile.webp";
+import Verified from "../../public/verified.astro";
+
+const tabs = [
+    { name: "Projects", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Notes", href: "/notes" },
+    { name: "Contact", href: "/contact" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="sticky top-0 bg-twitter-dark/80 backdrop-blur-sm border-b border-twitter-gray">
+    <div class="h-32 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+    <div class="px-4">
+        <div class="relative -mt-16">
+            <img src={Profile.src} alt="Profile" class="w-32 h-32 rounded-full border-4 border-white" />
+        </div>
+        <div class="mt-4">
+            <div class="space-y-4">
+                <div class="flex items-center">
+                    <h2 class="text-2xl font-bold leading-none">David Ravelo</h2>
+                    <Verified class="w-9" />
+                </div>
+                <p class="text-gray-400">
+                    Full-stack developer with 5+ years of experience building web applications. Passionate about creating beautiful and
+                    functional user experiences.
+                </p>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-semibold">Skills</h3>
+                    <div class="flex flex-wrap gap-2 pb-5">
+                        {
+                            ["JavaScript", "TypeScript", "React", "Node.js", "Python", "AWS"].map((skill) => (
+                                <span class="px-3 py-1 bg-twitter-gray/50 rounded-full">{skill}</span>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="flex">
+    {
+        tabs.map((tab) => (
+            <a
+                href={tab.href}
+                class:list={[
+                    "flex-1 text-center py-4 hover:bg-twitter-gray/30 transition-colors",
+                    currentPath === tab.href ? "border-b-2 border-twitter-blue font-medium" : "text-gray-400",
+                ]}
+            >
+                {tab.name}
+            </a>
+        ))
+    }
+</div>

@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const notes = [
+    {
+        title: "The Future of Web Development",
+        date: "2024-03-20",
+        content: "Thoughts on the evolution of web development and emerging technologies...",
+    },
+    {
+        title: "Building Scalable Applications",
+        date: "2024-03-15",
+        content: "Best practices for creating maintainable and scalable web applications...",
+    },
+];
+---
+
+<Layout title="Notes | Portfolio">
+    <div class="py-6 space-y-6">
+        {
+            notes.map((note) => (
+                <article class="border border-twitter-gray rounded-xl p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h2 class="text-xl font-bold">{note.title}</h2>
+                        <time class="text-sm text-gray-400">{note.date}</time>
+                    </div>
+                    <p class="text-gray-400">{note.content}</p>
+                </article>
+            ))
+        }
+    </div>
+</Layout>

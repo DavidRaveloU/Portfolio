@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = [
+    {
+        title: "E-commerce Platform",
+        description: "A modern e-commerce platform built with Next.js and Stripe integration.",
+        tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
+        link: "#",
+    },
+    {
+        title: "AI Chat Application",
+        description: "Real-time chat application powered by OpenAI GPT-3.",
+        tags: ["React", "Node.js", "OpenAI", "WebSocket"],
+        link: "#",
+    },
+    {
+        title: "Portfolio Website",
+        description: "A Twitter-inspired portfolio website built with Astro.",
+        tags: ["Astro", "Tailwind", "TypeScript"],
+        link: "#",
+    },
+];
+---
+
+<Layout title="Projects | Portfolio">
+    <div class="space-y-6 py-6">
+        {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+</Layout>
